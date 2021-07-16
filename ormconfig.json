@@ -1,0 +1,9 @@
+{
+    "type":"postgres",
+    "host":"localhost",
+    "port":"5432",
+    "username":"task-tool",
+    "password":"postgres",
+    "database":"postgres"
+
+}
