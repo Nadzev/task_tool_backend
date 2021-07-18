@@ -4,6 +4,10 @@
     "port":"5432",
     "username":"task-tool",
     "password":"postgres",
-    "database":"postgres"
-
+    "database":"task-tool",
+    "entities": ["entity/*.js"],
+    "migrations": ["src/shared/typeorm/migrations/*.ts"],
+    "cli": {
+        "migrationsDir": "src/shared/typeorm/migrations"
+    }
 }
