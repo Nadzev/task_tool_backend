@@ -1,8 +1,9 @@
+
 import { Router } from "express";
+import taskRouter from "@modules/routesTask/task_routes";
 
 const routes = Router();
 
-routes.get('/',(request, response)=>{
-    return response.json({message:'Hello dev!'})
-});
+routes.use('/tasks',taskRouter);
+
 export default routes;

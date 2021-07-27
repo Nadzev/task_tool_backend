@@ -4,12 +4,15 @@ import {
     Column,
     CreateDateColumn,
     UpdateDateColumn,
+    PrimaryGeneratedColumn,
   } from "typeorm";
 
   @Entity()
-  export class Estoria {
+  export class Task {
     @PrimaryColumn()
     readonly id: string;
+    @Column()
+    nametask: string;
 
     @Column()
     type: string;
@@ -20,7 +23,9 @@ import {
     @UpdateDateColumn()
     updated_at: Date;
 
-   
+    @Column()
+    taskconteudo:string;
+
   }
 
-  export default { Estoria };
+  export default { Task };

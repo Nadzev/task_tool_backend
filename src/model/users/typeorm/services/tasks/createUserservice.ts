@@ -1,6 +1,6 @@
-import { getCustomRepository } from "typeorm";
+/*import { getCustomRepository } from "typeorm";
 import { UserRepository } from "../repositories/userRepository";
-import { hash } from "bcryptjs";
+/*import { hash } from "bcryptjs";
 
 interface IUserRequest {
   name: string;
@@ -40,4 +40,4 @@ class CreateUserService {
   }
 }
 
-export { CreateUserService };
+export { CreateUserService };*/

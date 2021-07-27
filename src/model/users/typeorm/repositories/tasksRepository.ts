@@ -12,4 +12,10 @@ export class TaskRepository extends Repository<Task> {
         });
         return task;
     }
+    /*public async findByType(type: string):Promise <void>{
+        const tasks = this.createQueryBuilder();
+        tasks.getMany
+
+    }*/
     }
+   

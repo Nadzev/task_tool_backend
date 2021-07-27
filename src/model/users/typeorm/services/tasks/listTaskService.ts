@@ -7,7 +7,7 @@ import { Task } from "../entities/taskEntity";
 export class ListTaskService{
     public async execute():Promise<Task[]>{
         const taskRepository = getCustomRepository(TaskRepository);
-        const tasks = taskRepository.find()
+        const tasks = await taskRepository.find()
         return tasks;
     }
 }
