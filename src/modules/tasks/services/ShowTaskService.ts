@@ -1,6 +1,6 @@
 import AppError from '@shared/errors/AppError';
 import { getCustomRepository } from 'typeorm';
-import { Task } from '../typeorm/entities/Task';
+import { Tasks } from '../typeorm/entities/Task';
 import { TaskRepository } from '../typeorm/repositories/TaskRepository';
 
 interface IRequest {
@@ -8,7 +8,7 @@ interface IRequest {
 }
 
 class ShowTaskService {
-    public async execute({ id }: IRequest): Promise<Task | undefined> {
+    public async execute({ id }: IRequest): Promise<Tasks | undefined> {
         const productsRepository = getCustomRepository(TaskRepository);
         const product = productsRepository.findOne(id);
 

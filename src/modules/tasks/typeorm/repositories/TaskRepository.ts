@@ -4,11 +4,11 @@ import { Tasks } from '../entities/Task';
 @EntityRepository(Tasks)
 export class TaskRepository extends Repository<Tasks> {
     public async findByTitle(title: string): Promise<Tasks | undefined> {
-        const product = this.findOne({
+        const task = await this.findOne({
             where: {
                 title,
             },
         });
-        return product;
+        return task;
     }
 }

@@ -1,6 +1,6 @@
 import AppError from '@shared/errors/AppError';
 import { getCustomRepository } from 'typeorm';
-import { Task } from '../typeorm/entities/Task';
+import { Tasks } from '../typeorm/entities/Task';
 import { TaskRepository } from '../typeorm/repositories/TaskRepository';
 
 interface IRequest {
@@ -16,7 +16,7 @@ class UpdateTaskService {
         title,
         deadline,
         done,
-    }: IRequest): Promise<Task | undefined> {
+    }: IRequest): Promise<Tasks | undefined> {
         const taskRepository = getCustomRepository(TaskRepository);
 
         const task = await taskRepository.findOne(id);
