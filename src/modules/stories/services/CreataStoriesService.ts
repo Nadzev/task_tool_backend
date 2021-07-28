@@ -1,5 +1,5 @@
+import AppError from '@shared/errors/AppError';
 import { getCustomRepository } from 'typeorm';
-import AppError from '../../../shared/errors/AppError';
 import Storie from '../typeorm/entities/Storie';
 import StoriesRepository from '../typeorm/repositories/StoriesRepository';
 
@@ -16,8 +16,8 @@ export class CreateStoriesService {
         console.log('Execute =>');
         const storieRepository = getCustomRepository(StoriesRepository);
         const taskExists = await storieRepository.findByTitle(title);
-        console.log('Depois ==>');
         if (taskExists) {
+            console.log('Depois ==>');
             throw new AppError('There is already one task with this title');
         }
         const storie = storieRepository.create({

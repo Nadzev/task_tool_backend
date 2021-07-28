@@ -2,6 +2,7 @@ import 'reflect-metadata';
 import cors from 'cors';
 import { errors } from 'celebrate';
 import express, { NextFunction, Request, Response } from 'express';
+import 'express-async-errors';
 import routes from './routes';
 import { AppError } from '@shared/errors/AppError';
 import '@shared/typeorm';
@@ -18,7 +19,9 @@ app.use(
         response: Response,
         next: NextFunction,
     ) => {
+        console.log('ERROR INSTACE', error instanceof AppError);
         if (error instanceof AppError) {
+            console.log('ERROR INSTACE');
             return response.status(error.statusCode).json({
                 status: 'error',
                 message: error.message,

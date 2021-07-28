@@ -17,6 +17,7 @@ export class CreateTaskService {
         const taskExists = await taskRepository.findByTitle(title);
         console.log('Depois ==>');
         if (taskExists) {
+            console.log('Error');
             throw new AppError('There is already one task with this title');
         }
         const task = taskRepository.create({

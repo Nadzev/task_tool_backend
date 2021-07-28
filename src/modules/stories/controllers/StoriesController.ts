@@ -29,8 +29,8 @@ export default class StoriesController {
         request: Request,
         response: Response,
     ): Promise<Response> {
+        console.log('Request');
         const { title, list } = request.body;
-        console.log(request.body);
         const createStorie = new CreateStoriesService();
 
         const product = await createStorie.execute({
