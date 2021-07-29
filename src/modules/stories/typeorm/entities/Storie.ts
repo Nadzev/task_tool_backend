@@ -11,7 +11,7 @@ class Storie {
 
     @OneToMany(() => Tasks, tasks => tasks.storie, {
         cascade: true,
-        // onDelete: 'CASCADE',
+        onDelete: 'CASCADE',
         // onUpdate: 'CASCADE',
     })
     tasks: Tasks[];

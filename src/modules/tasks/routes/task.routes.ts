@@ -17,6 +17,7 @@ tasksRouter.post(
     '/',
     celebrate({
         [Segments.BODY]: {
+            id: Joi.string().uuid(),
             title: Joi.string().required(),
             deadline: Joi.string().required(),
             done: Joi.boolean().required(),

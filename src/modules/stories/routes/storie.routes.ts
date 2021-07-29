@@ -31,7 +31,7 @@ storieRouter.put(
             title: Joi.string().required(),
             tasks: Joi.array(),
         },
-        [Segments.PARAMS]: { id: Joi.string().uuid().required() },
+        [Segments.PARAMS]: { id: Joi.string().required() },
     }),
     storieController.update,
 );
