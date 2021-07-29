@@ -10,7 +10,7 @@ storieRouter.post(
     celebrate({
         [Segments.BODY]: {
             title: Joi.string().required(),
-            deadline: Joi.string(),
+            tasks: Joi.array(),
         },
     }),
     storieController.create,
@@ -29,7 +29,7 @@ storieRouter.put(
     celebrate({
         [Segments.BODY]: {
             title: Joi.string().required(),
-            list: Joi.string().required(),
+            tasks: Joi.array(),
         },
         [Segments.PARAMS]: { id: Joi.string().uuid().required() },
     }),

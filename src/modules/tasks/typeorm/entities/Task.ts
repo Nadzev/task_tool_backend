@@ -1,9 +1,23 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import Storie from '../../../stories/typeorm/entities/Storie';
+import {
+    Column,
+    Entity,
+    JoinColumn,
+    ManyToOne,
+    PrimaryGeneratedColumn,
+} from 'typeorm';
 
 @Entity()
 export class Tasks {
     @PrimaryGeneratedColumn()
     id: string;
+
+    @ManyToOne(() => Storie, task => task.tasks, {
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE',
+    })
+    @JoinColumn({ name: 'storie_id' })
+    storie: Storie;
 
     @Column()
     title: string;
@@ -22,27 +36,4 @@ export class Tasks {
 
     @Column()
     priority: string;
-
-    @Column()
-    tableId: string;
-
-    constructor(
-        id: string,
-        title: string,
-        description: string,
-        deadline: string,
-        done: boolean,
-        category: string,
-        priority: string,
-        tableld: string,
-    ) {
-        this.id = id;
-        this.title = title;
-        this.description = description;
-        this.deadline = deadline;
-        this.done = done;
-        this.category = category;
-        this.priority = priority;
-        this.tableId = tableld;
-    }
 }

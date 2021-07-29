@@ -10,6 +10,7 @@ export default class StoriesController {
         request: Request,
         response: Response,
     ): Promise<Response> {
+        console.log('Verufty');
         const listStorie = new ListStorieService();
         const list = await listStorie.execute();
 
@@ -30,12 +31,12 @@ export default class StoriesController {
         response: Response,
     ): Promise<Response> {
         console.log('Request');
-        const { title, list } = request.body;
+        const { title, tasks } = request.body;
         const createStorie = new CreateStoriesService();
 
         const product = await createStorie.execute({
             title,
-            list,
+            tasks,
         });
 
         return response.json(product);
@@ -45,14 +46,15 @@ export default class StoriesController {
         request: Request,
         response: Response,
     ): Promise<Response> {
-        const { id, title, list } = request.body;
+        console.log('error');
+        const { id, title, tasks } = request.body;
 
         const updateProduct = new UpdateStorieService();
 
         const product = await updateProduct.execute({
             id,
             title,
-            list,
+            tasks,
         });
 
         return response.json(product);

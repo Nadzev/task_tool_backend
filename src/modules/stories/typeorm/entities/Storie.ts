@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Tasks } from '../../../tasks/typeorm/entities/Task';
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity('stories')
 class Storie {
@@ -8,14 +9,12 @@ class Storie {
     @Column()
     title: string;
 
-    @Column()
-    list: string;
-
-    constructor(id: string, title: string, list: string) {
-        this.id = id;
-        this.title = title;
-        this.list = list;
-    }
+    @OneToMany(() => Tasks, tasks => tasks.storie, {
+        cascade: true,
+        // onDelete: 'CASCADE',
+        // onUpdate: 'CASCADE',
+    })
+    tasks: Tasks[];
 }
 
 export default Storie;

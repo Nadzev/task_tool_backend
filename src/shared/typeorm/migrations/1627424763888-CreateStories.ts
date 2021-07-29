@@ -19,11 +19,6 @@ export class CreateStories1627424763888 implements MigrationInterface {
                         type: 'varchar',
                     },
                     {
-                        name: 'list',
-                        type: 'varchar',
-                        isNullable: true,
-                    },
-                    {
                         name: 'created_at',
                         type: 'timestamp',
                         default: 'now()',

@@ -42,11 +42,6 @@ export class CreateTasks1627417794275 implements MigrationInterface {
                         isNullable: true,
                     },
                     {
-                        name: 'tableId',
-                        type: 'varchar',
-                        isNullable: true,
-                    },
-                    {
                         name: 'created_at',
                         type: 'timestamp',
                         default: 'now()',
